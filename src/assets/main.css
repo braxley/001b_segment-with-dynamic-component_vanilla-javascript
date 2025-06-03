@@ -1,0 +1,42 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  padding: 0 2rem;
+  background-color: black;
+  min-height: 100vh;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+.header {
+  background: #fff;
+  color: #000;
+  font-weight: 900;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
