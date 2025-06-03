@@ -26,19 +26,28 @@
         Page C
       </button>
     </div>
-    <PageA v-if="activeSegment === 'page-a'" />
-    <PageB v-else-if="activeSegment === 'page-b'" />
-    <PageC v-else />
+
+    <KeepAlive>
+      <component :is="currentPage" />
+    </KeepAlive>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import PageA from './pages/PageA.vue'
 import PageB from './pages/PageB.vue'
 import PageC from './pages/PageC.vue'
 
-const activeSegment = ref('page-a')
+const activeSegment = ref<'page-a' | 'page-b' | 'page-c'>('page-a')
+
+const pages = {
+  'page-a': PageA,
+  'page-b': PageB,
+  'page-c': PageC,
+}
+
+const currentPage = computed(() => pages[activeSegment.value])
 </script>
 
 <style scoped>
